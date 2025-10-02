@@ -31,7 +31,7 @@ body{font-family:'Montserrat',sans-serif;line-height:1.6;background:#17181c;colo
 .btn:hover{background:transparent;color:#fff;border:2px solid #fff;}
 
 /* Sections */
-.section{padding:96px 32px;}
+.section{padding:16px;}
 .section--alt{background:#17181c;}
 .section__head h2{text-align:center;font-size:36px;margin-bottom:32px;}
 .container{width:min(1120px,92%);margin-inline:auto;}
