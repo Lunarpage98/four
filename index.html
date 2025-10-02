@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Александр Найданов — Ведущий мероприятий</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="desktop-nav">
+      <a href="#about">Обо мне</a>
+      <a href="#work">Работы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-inner">
+        <a class="menu-link" href="#about">Обо мне</a>
+        <a class="menu-link" href="#work">Работы</a>
+        <a class="menu-link" href="#contacts">Контакты</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <p class="kicker">Выступаю · Веду · Пою</p>
+      <h1 class="title">Александр<br>Найданов</h1>
+      <a class="btn" href="https://t.me/naydanovs" target="_blank" rel="noopener">
+        <i class="fa-brands fa-telegram"></i> Связаться
+      </a>
+    </div>
+  </section>
+
+  <!-- About with slider -->
+  <section id="about" class="section container">
+    <header class="section__head"><h2>Обо мне</h2></header>
+    <div class="about-grid">
+      <div class="slider" id="aboutSlider">
+        <div class="slides">
+          <div class="slide"><img src="assets/Photo1.JPG" alt="Фото 1"></div>
+          <div class="slide"><img src="assets/photo2.JPG" alt="Фото 2"></div>
+          <div class="slide"><img src="assets/Photo3.JPG" alt="Фото 3"></div>
+        </div>
+        <button class="slider-btn prev" id="prevSlide" aria-label="Предыдущее фото"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-btn next" id="nextSlide" aria-label="Следующее фото"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+
+      <div class="about-text">
+        <ul class="badges">
+          <li><i class="fa-solid fa-trophy"></i> Финалист Comedy Battle, Лига Городов (ТНТ)</li>
+          <li><i class="fa-solid fa-microphone-lines"></i> Участник Высшей Лиги КВН 2025</li>
+          <li><i class="fa-solid fa-clapperboard"></i> Стендап Рулетка (ТНТ)</li>
+          <li><i class="fa-solid fa-award"></i> Победитель «Голосящий Кивин 2024» (Первый канал)</li>
+        </ul>
+        <div class="prose">
+          <p>Забираю гостей из рутины и мягко веду к празднику. Энергия, импровизация и тёплая атмосфера.</p>
+          <p>Через пару минут вы перестанете видеть «ведущего» — останется ощущение давнего коллеги.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="section section--alt">
+    <div class="container">
+      <header class="section__head"><h2>Мои работы</h2></header>
+      <div class="video-card">
+        <div class="video-wrap">
+          <video id="reel" preload="metadata" playsinline>
+            <source src="assets/video1.mp4" type="video/mp4" />
+            Ваш браузер не поддерживает видео.
+          </video>
+          <button class="video-play" id="playBtn" aria-label="Воспроизвести видео">
+            <i class="fa-solid fa-play"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacts -->
+  <section id="contacts" class="section">
+    <div class="container">
+      <header class="section__head"><h2>Контакты</h2></header>
+      <div class="contacts">
+  <a class="contact" href="https://t.me/naydansan" target="_blank" aria-label="Telegram">
+    <i class="fa-brands fa-telegram"></i>
+  </a>
+  <a class="contact" href="https://www.instagram.com/naydansan" target="_blank" aria-label="Instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+  <a class="contact" href="https://wa.me/79969357572" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
