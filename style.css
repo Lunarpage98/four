@@ -1,160 +1,230 @@
+/* =============== БАЗА =============== */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Montserrat',sans-serif;line-height:1.6;background:#17181c;color:#fff;}
+body{
+  font-family:'Montserrat',sans-serif;
+  line-height:1.6;
+  background:#17181c;   /* общий тёмный фон */
+  color:#fff;
+}
 
-/* Header */
-.site-header{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:flex-end;padding:20px;z-index:3000;}
-.desktop-nav{display:flex;gap:20px;}
-.desktop-nav a{color:#fff;text-decoration:none;font-weight:500;}
-.desktop-nav a:hover{color:#ccc;}
+/* Контейнер/секции */
+.container{width:min(1120px,92%);margin-inline:auto;}
+.section{padding:72px 32px;}         /* чуть компактнее вертикальные отступы */
+.section--alt{background:#17181c;}   /* такой же чёрный как у body */
+.section__head h2{text-align:center;font-size:36px;margin-bottom:32px;}
+/* Подтянуть "Обо мне" ближе к фото */
+#about.section{padding-top:48px;}
 
-/* Hamburger */
-.hamburger{position: relative;z-index: 3100;display:none;flex-direction:column;justify-content:space-between;width:32px;height:22px;background:none;border:none;cursor:pointer;z-index:1300;}
+/* =============== HEADER / NAV =============== */
+.site-header{
+  position:fixed; top:0; left:0; right:0;
+  display:flex; align-items:center; justify-content:flex-end;
+  padding:20px; z-index:3000;              /* поверх всего */
+}
+.desktop-nav{display:flex; gap:20px;}
+.desktop-nav a{color:#fff; text-decoration:none; font-weight:500;}
+
+/* ПК: увеличенные пункты меню */
+@media (min-width:1024px){
+  .site-header{ padding:24px 32px; }
+  .desktop-nav{ gap:16px; }
+  .desktop-nav a{
+    font-size:16px; font-weight:600;
+    padding:10px 16px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:999px;
+    background:rgba(255,255,255,.04);
+    transition:background .2s, border-color .2s, transform .15s;
+  }
+  .desktop-nav a:hover{
+    background:rgba(255,255,255,.12);
+    border-color:rgba(255,255,255,.35);
+    transform:translateY(-1px);
+  }
+}
+
+/* =============== HAMBURGER + MOBILE MENU =============== */
+.hamburger{
+  display:none; flex-direction:column; justify-content:space-between;
+  width:32px; height:22px; background:none; border:none; cursor:pointer;
+  z-index:3100; /* ещё выше шапки */
+}
 .hamburger span{display:block;height:3px;background:#fff;transition:.3s;}
 .hamburger.active span:nth-child(1){transform:translateY(9px) rotate(45deg);}
 .hamburger.active span:nth-child(2){opacity:0;}
 .hamburger.active span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
 
-/* Mobile menu - top sheet */
-.mobile-menu{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(12px);transform:translateY(-110%);transition:transform .35s ease;z-index:1250;padding-top:80px;padding-bottom:24px;border-radius:0 0 16px 16px;}
-.mobile-menu.active{transform:translateY(0);}
+/* Шторка сверху */
+.mobile-menu{
+  position:fixed; top:0; left:0; right:0;
+  background:rgba(0,0,0,.95); backdrop-filter:blur(12px);
+  transform:translateY(-110%); transition:transform .35s ease;
+  z-index:3050; padding-top:80px; padding-bottom:24px;
+  border-radius:0 0 16px 16px;
+}
+.mobile-menu.active{ transform:translateY(0); }
 .mobile-inner{display:flex;flex-direction:column;align-items:center;gap:20px;}
-.menu-link{color:#fff;font-size:18px;text-decoration:none;font-weight:600;}
+.menu-link{color:#fff; font-size:18px; text-decoration:none; font-weight:600;}
 
-/* Hero */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:url("assets/Main_photo2.jpg") center 20%/cover no-repeat;}
-.hero__bg{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index: 1}
-.hero__content{position:relative;z-index:2;margin-top:120px; z-index: 2;}
-.kicker{font-size:16px;margin-bottom:8px;letter-spacing:1.5px;}
-.title{font-size:42px;font-weight:700;line-height:1.05;margin-bottom:14px;}
-.btn{display:inline-block;background:#fff;color:#333;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;}
-.btn:hover{background:transparent;color:#fff;border:2px solid #fff;}
-
-/* Sections */
-.section{padding:16px;}
-.section--alt{background:#17181c;}
-.section__head h2{text-align:center;font-size:36px;margin-bottom:32px;}
-.container{width:min(1120px,92%);margin-inline:auto;}
-
-/* About layout */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
-.badges{list-style:none;padding:0;margin:0 0 24px;}
-.badges li{background:#222;padding:14px 20px;margin-bottom:12px;border-left:4px solid #fff;border-radius:8px;}
-.prose p{margin-bottom:16px;color:#ccc;font-size:18px;}
-
-/* Slider */
-.slider{position:relative;overflow:hidden;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);}
-.slides{display:flex;transition:transform .5s ease;}
-.slide{min-width:100%;}
-.slide img{width:100%;height:420px;object-fit:cover;object-position:center top;display:block;}
-.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;padding:10px 14px;cursor:pointer;border-radius:50%;font-size:18px;transition:background .3s;}
-.slider-btn:hover{background:rgba(0,0,0,.8);}
-.prev{left:10px;}
-.next{right:10px;}
-
-/* Video */
-.video-card{text-align:center;}
-.video-wrap{position:relative;max-width:400px;margin:0 auto;}
-.video-wrap::before{content:"";display:block;padding-top:177.78%;}
-.video-wrap video,.video-play{position:absolute;inset:0;}
-.video-wrap video{width:100%;height:100%;object-fit:cover;border-radius:12px;}
-.video-play{display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;background:rgba(0,0,0,.6);border:none;border-radius:50%;cursor:pointer;width:64px;height:64px;margin:auto;transition:background .3s;}
-.video-play:hover{background:rgba(0,0,0,.8);}
-
-/* Contacts — только иконки */
-.contacts{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
-.contact{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#222;color:#fff;text-decoration:none;font-size:28px;transition:background .3s, transform .2s;}
-.contact:hover{background:#444;transform:translateY(-2px);}
-
-/* Responsive */
-@media(max-width:860px){
+/* Показываем гамбургер на телефонах */
+@media (max-width:861px){
   .desktop-nav{display:none;}
   .hamburger{display:flex;}
+}
+@media (max-width:862px){
+  .desktop-nav{display:flex;}
+  .hamburger{display:none;}
+}
+/* Форс на любых тач-устройствах + учёт safe area */
+@media (hover:none) and (pointer:coarse){
+  .desktop-nav{display:none !important;}
+  .hamburger{
+    display:flex !important;
+    position:fixed;
+    top:calc(16px + env(safe-area-inset-top));
+    right:calc(16px + env(safe-area-inset-right));
+  }
+}
+@supports(padding-top: env(safe-area-inset-top)){
+  .site-header{
+    padding-top:calc(20px + env(safe-area-inset-top));
+    padding-left:calc(20px + env(safe-area-inset-left));
+    padding-right:calc(20px + env(safe-area-inset-right));
+  }
+}
+
+/* =============== HERO =============== */
+.hero {
+  min-height: 100vh;    /* базовый вариант */
+  min-height: 100svh;   /* поддержка iOS Safari */
+  min-height: 100dvh;   /* современный вариант Chrome/Safari */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  background: url("assets/Main_photo2.jpg") center 20% / cover no-repeat;
+}
+.hero__bg{position:absolute; inset:0; background:rgba(0,0,0,.35); z-index:1;}
+.hero__content{position:relative; z-index:2; margin-top:60px;} /* чуть ниже центра на мобайле */
+.kicker{font-size:16px; margin-bottom:8px; letter-spacing:1.5px;}
+.title{font-size:42px; font-weight:700; line-height:1.05; margin-bottom:14px;}
+.btn{
+  display:inline-block; background:#fff; color:#333;
+  padding:12px 24px; border-radius:50px; text-decoration:none; font-weight:600;
+}
+.btn:hover{background:transparent; color:#fff; border:2px solid #fff;}
+
+/* ПК: «фото во весь экран» + контент слева и анимация появления */
+@media (min-width:1024px){
+  .hero{ justify-content:flex-start; }
+  .hero__content{
+    margin-top:0;
+    margin-left:clamp(32px, 8vw, 120px);
+    text-align:left;
+    max-width:720px;
+
+    /* анимация слева */
+    animation:slideInLeft .8s ease-out both;
+  }
+  .kicker{ font-size:clamp(16px, 1.2vw, 20px); }
+  .title{ font-size:clamp(56px, 7vw, 96px); line-height:1.02; margin-bottom:16px; }
+  .btn{ font-size:16px; padding:14px 24px; }
+}
+
+/* Анимация и доступность */
+@keyframes slideInLeft{
+  from{ opacity:0; transform:translateX(-40px); }
+  to  { opacity:1; transform:translateX(0); }
+}
+@media (prefers-reduced-motion:reduce){
+  .hero__content{ animation:none !important; }
+}
+
+/* Гарантируем порядок слоёв */
+.site-header{ z-index:3000; }
+.hamburger{ z-index:3100; }
+.hero__bg{ z-index:1; }
+.hero__content{ z-index:2; }
+
+/* =============== ABOUT (слайдер — по желанию) =============== */
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;}
+.badges{list-style:none; padding:0; margin:0 0 24px;}
+.badges li{background:#222; padding:14px 20px; margin-bottom:12px; border-left:4px solid #fff; border-radius:8px;}
+.prose p{margin-bottom:16px; color:#ccc; font-size:18px;}
+
+.slider{position:relative; overflow:hidden; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.3);}
+.slides{display:flex; transition:transform .5s ease;}
+.slide{min-width:100%;}
+.slide img{width:100%; height:420px; object-fit:cover; object-position:center top; display:block;}
+.slider-btn{
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:rgba(0,0,0,.5); color:#fff; border:none;
+  padding:10px 14px; cursor:pointer; border-radius:50%; font-size:18px;
+  transition:background .3s;
+}
+.slider-btn:hover{ background:rgba(0,0,0,.8); }
+.prev{left:10px;} .next{right:10px;}
+
+@media(max-width:860px){
   .about-grid{grid-template-columns:1fr;}
   .slide img{height:360px;}
 }
+
+/* =============== WORK (видео) =============== */
+.video-card{text-align:center;}
+.video-wrap{position:relative; max-width:400px; margin:0 auto;}
+.video-wrap::before{content:""; display:block; padding-top:177.78%;} /* 9:16 */
+.video-wrap video, .video-play{position:absolute; inset:0;}
+.video-wrap video{width:100%; height:100%; object-fit:cover; border-radius:12px;}
+.video-play{
+  display:flex; align-items:center; justify-content:center;
+  font-size:28px; color:#fff; background:rgba(0,0,0,.6);
+  border:none; border-radius:50%; cursor:pointer;
+  width:64px; height:64px; margin:auto; transition:background .3s;
+}
+.video-play:hover{ background:rgba(0,0,0,.8); }
+
+/* =============== CONTACTS (только иконки) =============== */
+.contacts{display:flex; justify-content:center; gap:20px; flex-wrap:wrap;}
+.contact{
+  display:flex; align-items:center; justify-content:center;
+  width:60px; height:60px; border-radius:50%;
+  background:#222; color:#fff; text-decoration:none; font-size:28px;
+  transition:background .3s, transform .2s;
+}
+.contact:hover{ background:#444; transform:translateY(-2px); }
+
+/* =============== TOUR (если используешь) =============== */
 :root{
-  --bg: #17181c;
-  --muted: #9aa0a6;
-  --card: #1f2126;
-  --accent: #ff2e2e;   /* цвет кнопки билетов */
-  --accent-hover: #ff4747;
+  --muted:#9aa0a6;
+  --card:#1f2126;
+  --accent:#ff2e2e;
+  --accent-hover:#ff4747;
 }
-
-/* TOUR */
-.tour-list{
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 22px;
-}
-
+.tour-list{list-style:none; margin:0; padding:0; display:grid; gap:22px;}
 .tour-item{
-  background: var(--card);
-  border-radius: 16px;
-  padding: 22px 22px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 20px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  background:var(--card); border-radius:16px; padding:22px;
+  display:grid; grid-template-columns:1fr auto; align-items:center; gap:20px;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
 }
-
-.tour-date{
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: .3px;
-  margin-bottom: 6px;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.tour-city{
-  font-size: 32px;
-  line-height: 1.05;
-  margin: 0 0 6px;
-}
-
-.tour-venue{
-  color: #fff;
-  opacity: .9;
-  margin-bottom: 2px;
-}
-
-.tour-tag{
-  color: var(--muted);
-  font-size: 14px;
-  letter-spacing: .2px;
-  text-transform: uppercase;
-}
-
+.tour-date{color:var(--accent); font-weight:700; letter-spacing:.3px; margin-bottom:6px; font-size:14px; text-transform:uppercase;}
+.tour-city{font-size:32px; line-height:1.05; margin:0 0 6px;}
+.tour-venue{color:#fff; opacity:.9; margin-bottom:2px;}
+.tour-tag{color:var(--muted); font-size:14px; letter-spacing:.2px; text-transform:uppercase;}
 .btn-tickets{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 210px;
-  height: 48px;
-  padding: 0 22px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 800;
-  letter-spacing: .2px;
-  transition: transform .15s ease, background-color .2s ease;
-  box-shadow: 0 10px 24px rgba(255,46,46,.25);
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:210px; height:48px; padding:0 22px;
+  background:var(--accent); color:#fff; border-radius:999px; text-decoration:none; font-weight:800; letter-spacing:.2px;
+  transition:transform .15s ease, background-color .2s ease;
+  box-shadow:0 10px 24px rgba(255,46,46,.25);
 }
-.btn-tickets:hover{ background: var(--accent-hover); transform: translateY(-2px); }
-.btn-tickets:active{ transform: translateY(0); }
+.btn-tickets:hover{ background:var(--accent-hover); transform:translateY(-2px); }
+.btn-tickets:active{ transform:translateY(0); }
 
-/* адаптив */
-@media (max-width: 720px){
-  .tour-item{
-    grid-template-columns: 1fr;
-    padding: 18px;
-  }
-  .tour-city{ font-size: 26px; }
-  .btn-tickets{ width: 100%; min-width: 0; }
+@media (max-width:720px){
+  .tour-item{ grid-template-columns:1fr; padding:18px; }
+  .tour-city{ font-size:26px; }
+  .btn-tickets{ width:100%; min-width:0; }
 }
-
