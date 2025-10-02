@@ -22,7 +22,7 @@ body{font-family:'Montserrat',sans-serif;line-height:1.6;background:#17181c;colo
 .menu-link{color:#fff;font-size:18px;text-decoration:none;font-weight:600;}
 
 /* Hero */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:url("assets/Main_photo2.JPG") center 40%/cover no-repeat;}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:url("assets/Main_photo2.jpg") center 40%/cover no-repeat;}
 .hero__bg{position:absolute;inset:0;background:rgba(0,0,0,.35);}
 .hero__content{position:relative;z-index:2;}
 .kicker{font-size:16px;margin-bottom:8px;letter-spacing:1.5px;}
