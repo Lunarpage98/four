@@ -22,11 +22,11 @@ body{font-family:'Montserrat',sans-serif;line-height:1.6;background:#17181c;colo
 .menu-link{color:#fff;font-size:18px;text-decoration:none;font-weight:600;}
 
 /* Hero */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:url("assets/Main_photo2.jpg") center 40%/cover no-repeat;}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:url("assets/Main_photo2.jpg") center 20%/cover no-repeat;}
 .hero__bg{position:absolute;inset:0;background:rgba(0,0,0,.35);}
-.hero__content{position:relative;z-index:2;}
+.hero__content{position:relative;z-index:2;margin-top:120px;}
 .kicker{font-size:16px;margin-bottom:8px;letter-spacing:1.5px;}
-.title{font-size:42px;font-weight:700;margin-bottom:24px;}
+.title{font-size:42px;font-weight:700;line-height:1.05;margin-bottom:14px;}
 .btn{display:inline-block;background:#fff;color:#333;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;}
 .btn:hover{background:transparent;color:#fff;border:2px solid #fff;}
 
@@ -55,16 +55,16 @@ body{font-family:'Montserrat',sans-serif;line-height:1.6;background:#17181c;colo
 /* Video */
 .video-card{text-align:center;}
 .video-wrap{position:relative;max-width:400px;margin:0 auto;}
-.video_wrap_fallback{}
 .video-wrap::before{content:"";display:block;padding-top:177.78%;}
 .video-wrap video,.video-play{position:absolute;inset:0;}
 .video-wrap video{width:100%;height:100%;object-fit:cover;border-radius:12px;}
 .video-play{display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;background:rgba(0,0,0,.6);border:none;border-radius:50%;cursor:pointer;width:64px;height:64px;margin:auto;transition:background .3s;}
 .video-play:hover{background:rgba(0,0,0,.8);}
 
-/* Contacts */
+/* Contacts — только иконки */
 .contacts{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
-.contact{display:flex;align-items:center;gap:8px;background:#222;padding:12px 20px;border-radius:8px;text-decoration:none;color:#fff;font-weight:600;}
+.contact{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#222;color:#fff;text-decoration:none;font-size:28px;transition:background .3s, transform .2s;}
+.contact:hover{background:#444;transform:translateY(-2px);}
 
 /* Responsive */
 @media(max-width:860px){
@@ -73,3 +73,88 @@ body{font-family:'Montserrat',sans-serif;line-height:1.6;background:#17181c;colo
   .about-grid{grid-template-columns:1fr;}
   .slide img{height:360px;}
 }
+:root{
+  --bg: #17181c;
+  --muted: #9aa0a6;
+  --card: #1f2126;
+  --accent: #ff2e2e;   /* цвет кнопки билетов */
+  --accent-hover: #ff4747;
+}
+
+/* TOUR */
+.tour-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 22px;
+}
+
+.tour-item{
+  background: var(--card);
+  border-radius: 16px;
+  padding: 22px 22px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+
+.tour-date{
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: .3px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.tour-city{
+  font-size: 32px;
+  line-height: 1.05;
+  margin: 0 0 6px;
+}
+
+.tour-venue{
+  color: #fff;
+  opacity: .9;
+  margin-bottom: 2px;
+}
+
+.tour-tag{
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: .2px;
+  text-transform: uppercase;
+}
+
+.btn-tickets{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  height: 48px;
+  padding: 0 22px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: .2px;
+  transition: transform .15s ease, background-color .2s ease;
+  box-shadow: 0 10px 24px rgba(255,46,46,.25);
+}
+.btn-tickets:hover{ background: var(--accent-hover); transform: translateY(-2px); }
+.btn-tickets:active{ transform: translateY(0); }
+
+/* адаптив */
+@media (max-width: 720px){
+  .tour-item{
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+  .tour-city{ font-size: 26px; }
+  .btn-tickets{ width: 100%; min-width: 0; }
+}
+
