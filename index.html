@@ -6,26 +6,30 @@
   <title>Александр Найданов — Ведущий мероприятий</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
   <!-- Header -->
   <header class="site-header">
     <nav class="desktop-nav">
-      <a href="#about">Обо мне</a>
-      <a href="#work">Работы</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
+  <a href="#about">Обо мне</a>
+  <a href="#work">Работы</a>
+  <a href="#tour">Концерты</a>
+  <a href="#contacts">Контакты</a>
+</nav>
+
     <button class="hamburger" id="hamburger" aria-label="Открыть меню" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-inner">
-        <a class="menu-link" href="#about">Обо мне</a>
-        <a class="menu-link" href="#work">Работы</a>
-        <a class="menu-link" href="#contacts">Контакты</a>
-      </div>
-    </div>
+  <div class="mobile-inner">
+    <a class="menu-link" href="#about">Обо мне</a>
+    <a class="menu-link" href="#work">Работы</a>
+    <a class="menu-link" href="#tour">Концерты</a>
+    <a class="menu-link" href="#contacts">Контакты</a>
+  </div>
+</div>
+
   </header>
 
   <!-- Hero -->
@@ -33,38 +37,29 @@
     <div class="hero__bg"></div>
     <div class="hero__content">
       <p class="kicker">Выступаю · Веду · Пою</p>
-      <h1 class="title">Александр<br>Найданов</h1>
+      <h1 class="title">АЛЕКСАНДР<br>НАЙДАНОВ</h1>
       <a class="btn" href="https://t.me/naydanovs" target="_blank" rel="noopener">
         <i class="fa-brands fa-telegram"></i> Связаться
       </a>
     </div>
   </section>
 
-  <!-- About with slider -->
+  <!-- About -->
   <section id="about" class="section container">
-    <header class="section__head"><h2>Обо мне</h2></header>
-    <!-- <div class="about-grid">
-      <div class="slider" id="aboutSlider">
-        <div class="slides">
-          <div class="slide"><img src="assets/Photo1.JPG" alt="Фото 1"></div>
-          <div class="slide"><img src="assets/photo2.JPG" alt="Фото 2"></div>
-          <div class="slide"><img src="assets/Photo3.JPG" alt="Фото 3"></div>
-        </div>
-        <button class="slider-btn prev" id="prevSlide" aria-label="Предыдущее фото"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="slider-btn next" id="nextSlide" aria-label="Следующее фото"><i class="fa-solid fa-chevron-right"></i></button>
-      </div> -->
+    <header class="section__head">
+      <h2 class="typewriter-title"><span id="typewriter"></span></h2>
+    </header>
 
-      <div class="about-text">
-        <ul class="badges">
-          <li><i class="fa-solid fa-award"></i> Победитель «Голосящий Кивин 2024» (Первый канал)</li>
-          <li><i class="fa-solid fa-trophy"></i> Финалист Comedy Battle, Лига Городов (ТНТ)</li>
-          <li><i class="fa-solid fa-microphone-lines"></i> Участник Высшей Лиги КВН 2025</li>
-          <li><i class="fa-solid fa-clapperboard"></i> Стендап Рулетка (ТНТ)</li>
-        </ul>
-        <div class="prose">
-          <p>Забираю гостей из рутины и мягко веду к празднику. Энергия, импровизация и тёплая атмосфера.</p>
-          <p>Через пару минут вы перестанете видеть «ведущего» — останется ощущение давнего коллеги.</p>
-        </div>
+    <div class="about-text">
+      <ul class="badges">
+        <li><i class="fa-solid fa-award"></i> Победитель «Голосящий Кивин 2024» (Первый канал)</li>
+        <li><i class="fa-solid fa-trophy"></i> Финалист Comedy Battle, Лига Городов (ТНТ)</li>
+        <li><i class="fa-solid fa-microphone-lines"></i> Участник Высшей Лиги КВН 2025</li>
+        <li><i class="fa-solid fa-clapperboard"></i> Стендап Рулетка (ТНТ)</li>
+      </ul>
+      <div class="prose">
+        <p>Забираю гостей из рутины и мягко веду к празднику. Энергия, импровизация и тёплая атмосфера.</p>
+        <p>Через пару минут вы перестанете видеть «ведущего» — останется ощущение давнего коллеги.</p>
       </div>
     </div>
   </section>
@@ -88,39 +83,33 @@
   </section>
 
   <!-- Tour -->
-<section id="tour" class="section">
-  <div class="container">
-    <header class="section__head"><h2>STAND UP ТУР</h2></header>
-
-    <ul class="tour-list">
-      <!-- Карточка города -->
-      <li class="tour-item">
-        <div class="tour-left">
-          <div class="tour-date">14 октября 2025 · 19:30</div>
-          <h3 class="tour-city">Нижний Новгород</h3>
-          <div class="tour-venue">Стедап Клуб</div>
-        </div>
-        <div class="tour-right">
-          <a class="btn-tickets" href="https://gostandup.ru/nijniy_novgorod/events/sasha_naydanov_i_erema_akmoldaev_stendap_tur/id85500" target="_blank" rel="noopener">Купить билеты</a>
-        </div>
-      </li>
-
-      <li class="tour-item">
-        <div class="tour-left">
-          <div class="tour-date">15 октября 2025 · 19:00</div>
-          <h3 class="tour-city">Владимир</h3>
-          <div class="tour-venue">Пространство «Параллель 56»</div>
-        </div>
-        <div class="tour-right">
-          <a class="btn-tickets" href="https://gostandup.ru/vladimir/events/sasha_naydanov_i_erema_akmoldaev_stendap_tur/id85473" target="_blank" rel="noopener">Купить билеты</a>
-        </div>
-      </li>
-
-      <!-- дублируй блок <li> для новых городов -->
-    </ul>
-  </div>
-</section>
-
+  <section id="tour" class="section">
+    <div class="container">
+      <header class="section__head"><h2>STAND UP ТУР</h2></header>
+      <ul class="tour-list">
+        <li class="tour-item">
+          <div class="tour-left">
+            <div class="tour-date">14 октября 2025 · 19:30</div>
+            <h3 class="tour-city">Нижний Новгород</h3>
+            <div class="tour-venue">Стедап Клуб</div>
+          </div>
+          <div class="tour-right">
+            <a class="btn-tickets" href="https://gostandup.ru/nijniy_novgorod/events/sasha_naydanov_i_erema_akmoldaev_stendap_tur/id85500" target="_blank" rel="noopener">Купить билеты</a>
+          </div>
+        </li>
+        <li class="tour-item">
+          <div class="tour-left">
+            <div class="tour-date">15 октября 2025 · 19:00</div>
+            <h3 class="tour-city">Владимир</h3>
+            <div class="tour-venue">Пространство «Параллель 56»</div>
+          </div>
+          <div class="tour-right">
+            <a class="btn-tickets" href="https://gostandup.ru/vladimir/events/sasha_naydanov_i_erema_akmoldaev_stendap_tur/id85473" target="_blank" rel="noopener">Купить билеты</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <!-- Contacts -->
   <section id="contacts" class="section">

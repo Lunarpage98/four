@@ -151,7 +151,13 @@ body{
 /* =============== ABOUT (слайдер — по желанию) =============== */
 .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:start;}
 .badges{list-style:none; padding:0; margin:0 0 24px;}
-.badges li{background:#222; padding:14px 20px; margin-bottom:12px; border-left:4px solid #fff; border-radius:8px;}
+.badges li {
+  background:#222;
+  padding:8px 14px;       /* меньше высота и ширина */
+  margin-bottom:8px;      /* меньше расстояние между ними */
+  border-left:3px solid #fff;  /* линия слева чуть тоньше */
+  border-radius:6px;      /* менее округлые углы */
+}
 .prose p{margin-bottom:16px; color:#ccc; font-size:18px;}
 
 .slider{position:relative; overflow:hidden; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.3);}
@@ -227,4 +233,68 @@ body{
   .tour-item{ grid-template-columns:1fr; padding:18px; }
   .tour-city{ font-size:26px; }
   .btn-tickets{ width:100%; min-width:0; }
+}
+.typewriter {
+  font-weight: 800;
+  font-size: clamp(22px, 2.2vw, 34px);
+  line-height: 1.2;
+  margin-bottom: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.caret {
+  display: inline-block;
+  width: 0.1em;
+  height: 1em;
+  margin-left: 4px;
+  background: #fff;
+  vertical-align: -0.05em;
+  animation: blink .9s steps(1) infinite;
+}
+/* Центрированный заголовок с эффектом печатной машинки */
+.section__head .typewriter-title {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* Контейнер для центрирования */
+.section__head {
+  text-align: center;
+}
+
+/* Сам эффект курсора */
+#typewriter {
+  position: relative;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+#typewriter::after {
+  content: "|";
+  position: relative;
+  margin-left: 6px;
+  animation: blink 0.8s steps(1) infinite;
+  opacity: .9;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Адаптивный размер на мобильных */
+@media (max-width: 560px) {
+  .section__head .typewriter-title {
+    font-size: 28px;
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+@media (max-width:420px) {
+  .typewriter { font-size: 20px; }
 }

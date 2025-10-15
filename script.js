@@ -17,7 +17,7 @@ function toggleMenu(forceOpen){
 if (burger) burger.addEventListener('click', () => toggleMenu());
 if (menu) menu.querySelectorAll('.menu-link').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
-// About slider
+// About slider (если останется в будущем)
 const slides = document.querySelector('#aboutSlider .slides');
 const slideEls = document.querySelectorAll('#aboutSlider .slide');
 const prevBtn = document.getElementById('prevSlide');
@@ -51,4 +51,40 @@ if(video && playBtn){
     if(video.paused){ video.play(); playBtn.style.display="none"; }
     else{ video.pause(); playBtn.style.display="flex"; }
   });
+}
+
+// ===== Typewriter as section title =====
+const typewriterEl = document.getElementById('typewriter');
+if (typewriterEl) {
+  const phrases = [
+    'About мне',
+    'Смотрите какой fabric',
+    'Смотрите какой details' // остаётся в конце
+  ];
+  let currentPhrase = 0;
+  let currentChar = 0;
+  let deleting = false;
+
+  function type() {
+    const phrase = phrases[currentPhrase];
+
+    if (!deleting) {
+      typewriterEl.textContent = phrase.slice(0, ++currentChar);
+      if (currentChar === phrase.length) {
+        if (currentPhrase === phrases.length - 1) return; // последняя фраза остаётся
+        deleting = true;
+        setTimeout(type, 1200);
+        return;
+      }
+    } else {
+      typewriterEl.textContent = phrase.slice(0, --currentChar);
+      if (currentChar === 0) {
+        deleting = false;
+        currentPhrase = (currentPhrase + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, deleting ? 50 : 100);
+  }
+
+  type();
 }
