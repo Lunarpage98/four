@@ -43,16 +43,6 @@ if (slides){
   showSlide(0);
 }
 
-// Video play/pause
-const video = document.getElementById('reel');
-const playBtn = document.getElementById('playBtn');
-if(video && playBtn){
-  playBtn.addEventListener('click',()=>{
-    if(video.paused){ video.play(); playBtn.style.display="none"; }
-    else{ video.pause(); playBtn.style.display="flex"; }
-  });
-}
-
 // ===== Typewriter as section title =====
 const typewriterEl = document.getElementById('typewriter');
 if (typewriterEl) {
@@ -71,7 +61,11 @@ if (typewriterEl) {
     if (!deleting) {
       typewriterEl.textContent = phrase.slice(0, ++currentChar);
       if (currentChar === phrase.length) {
-        if (currentPhrase === phrases.length - 1) return; // последняя фраза остаётся
+        if (currentPhrase === phrases.length - 1) {
+          // Убираем мигающий курсор после финала
+          typewriterEl.classList.add('finished');
+          return;
+        }
         deleting = true;
         setTimeout(type, 1200);
         return;
@@ -88,3 +82,4 @@ if (typewriterEl) {
 
   type();
 }
+
